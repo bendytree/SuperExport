@@ -1,0 +1,27 @@
+
+require 'rake'
+ 
+task :build do
+    outfile = "SuperExport.jsx"
+
+	`cat /dev/null > #{outfile}`
+	
+	infiles = [
+	    'src/docs.js', 
+	    'src/utilities.js', 
+	    'src/document.js', 
+	    'src/layer-data.js', 
+	    'src/reverting.js', 
+	    'src/hidden-layers.js', 
+	    'src/helpers.js', 
+	    'src/exporter.js', 
+	    'src/main.js'
+	]
+	
+	infiles.each {|file|
+	  `cat #{file} >> #{outfile}`
+	  puts file
+	}
+	puts "Done"
+end
+
